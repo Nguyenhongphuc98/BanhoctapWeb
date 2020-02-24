@@ -27,7 +27,42 @@
 	    <version>4.0.1</version>
 	    <scope>provided</scope>
 	</dependency>
-	
+
+	<!-- for connect DB -->
+	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>1.4</version>
+	</dependency>
+
+	<!-- for mysql -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.18</version>
+	</dependency>
+
+	<!-- su dung entity, column -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.4.10.Final</version>
+	</dependency>
+
+	<!-- de tao transaction -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>5.2.2.RELEASE</version>
+	</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>5.2.2.RELEASE</version>
+	</dependency>
+
 
   </dependencies>
 </project>

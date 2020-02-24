@@ -1,5 +1,12 @@
 package com.banhoctap.controller;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +27,7 @@ public class Home {
 
 	@GetMapping
 	public String WellcomePage() {
+		DemoDB();
 		return "home";
 	}
 
@@ -64,10 +72,30 @@ public class Home {
 		return name;
 	}
 	
-	// demo Model attribute, auto map to object and it have to have same property name
-		@ResponseBody
-		@PostMapping(path = "/atribute")
-		public String ChiTietPost(@ModelAttribute Post post) {
-			return post.getTitle();
+	// demo Model attribute, auto map to object and it have to have same property
+	// name
+	@ResponseBody
+	@PostMapping(path = "/atribute")
+	public String ChiTietPost(@ModelAttribute Post post) {
+		return post.getTitle();
+	}
+
+	// demo access db
+	@Autowired
+	SessionFactory sessionFactory;
+
+	@Transactional
+	private void DemoDB() {
+		Session session;
+		try {
+			session=sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			session=sessionFactory.openSession();
 		}
+		String query = "from Post";
+		List<Post> list = session.createQuery(query).getResultList();
+		for (Post post : list) {
+			System.out.println(post.getTitle());
+		}
+	}
 }
