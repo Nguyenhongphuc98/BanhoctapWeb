@@ -19,15 +19,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.banhoctap.entity.Post;
+import com.banhoctap.controller.model.Post;
+import com.banhoctap.entity.BHTPost;
+import com.banhoctap.service.PostService;
 
 @Controller
 @RequestMapping("/")
 public class Home {
+	
+	@Autowired
+	PostService postService;
 
+	
 	@GetMapping
 	public String WellcomePage() {
+
 		DemoDB();
+		postService.savePost(new Post());
 		return "home";
 	}
 
@@ -76,7 +84,7 @@ public class Home {
 	// name
 	@ResponseBody
 	@PostMapping(path = "/atribute")
-	public String ChiTietPost(@ModelAttribute Post post) {
+	public String ChiTietPost(@ModelAttribute BHTPost post) {
 		return post.getTitle();
 	}
 
@@ -93,8 +101,8 @@ public class Home {
 			session=sessionFactory.openSession();
 		}
 		String query = "from Post";
-		List<Post> list = session.createQuery(query).getResultList();
-		for (Post post : list) {
+		List<BHTPost> list = session.createQuery(query).getResultList();
+		for (BHTPost post : list) {
 			System.out.println(post.getTitle());
 		}
 	}

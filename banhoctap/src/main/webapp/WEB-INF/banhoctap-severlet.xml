@@ -12,6 +12,8 @@
        <import resource="classpath:IoC.xml"/>
 
        <context:component-scan base-package="com.banhoctap.controller"/>
+       <context:component-scan base-package="com.banhoctap.service"/>
+       <context:component-scan base-package="com.banhoctap.dal"/>
         
        <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
 	      <property name = "prefix" value = "/WEB-INF/views/" />
