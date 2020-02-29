@@ -25,7 +25,7 @@ import com.banhoctap.service.PostService;
 
 @Controller
 @RequestMapping("/")
-public class Home {
+public class HomeController {
 	
 	@Autowired
 	PostService postService;
@@ -34,8 +34,7 @@ public class Home {
 	@GetMapping
 	public String WellcomePage() {
 
-		DemoDB();
-		postService.savePost(new Post());
+		//postService.savePost(new Post());
 		return "home";
 	}
 
@@ -86,24 +85,5 @@ public class Home {
 	@PostMapping(path = "/atribute")
 	public String ChiTietPost(@ModelAttribute BHTPost post) {
 		return post.getTitle();
-	}
-
-	// demo access db
-	@Autowired
-	SessionFactory sessionFactory;
-
-	@Transactional
-	private void DemoDB() {
-		Session session;
-		try {
-			session=sessionFactory.getCurrentSession();
-		} catch (Exception e) {
-			session=sessionFactory.openSession();
-		}
-		String query = "from Post";
-		List<BHTPost> list = session.createQuery(query).getResultList();
-		for (BHTPost post : list) {
-			System.out.println(post.getTitle());
-		}
 	}
 }

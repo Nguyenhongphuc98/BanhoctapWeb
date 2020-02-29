@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.banhoctap.controller.model.Post;
 import com.banhoctap.dal.PostDAL;
 import com.banhoctap.entity.BHTPost;
+import com.banhoctap.entity.BHTUserAccount;
 
 @Service
 public class PostService {
@@ -14,10 +15,19 @@ public class PostService {
 	@Autowired
 	PostDAL postDAL;
 	
-	public boolean savePost(Post post ) {
-		//process logic here
-		//convert post to BHT post
-		postDAL.savePost(new BHTPost());
+	public boolean uploadPost(Post post) {
+		
+		BHTPost bhtPost = new BHTPost();
+		bhtPost.bind(post);
+		BHTUserAccount user = new BHTUserAccount();
+		user.setId(1);
+		bhtPost.setAuthor(user);
+		
+		postDAL.savePost(bhtPost);
 		return true;
+	}
+	
+	public BHTPost fetchPostByURL(String url) {
+		return postDAL.fetchPostByURL(url);
 	}
 }
