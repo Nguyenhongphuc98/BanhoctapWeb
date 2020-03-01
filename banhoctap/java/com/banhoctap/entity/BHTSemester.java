@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "Semester")
-public class BHTSemeter {
+public class BHTSemester {
 
 	@Id
 	@Column(name = "SemesterID")
