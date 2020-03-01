@@ -35,7 +35,6 @@ public class BHTPost {
 	@Column(name = "PostPublishDtm")
 	Date publishDtm;
 	
-	
 	@Column(name = "PostReadTime")
 	int readTime;
 	

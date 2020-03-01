@@ -43,7 +43,7 @@ public class BHTDocument {
 	
 	@OneToOne
 	@JoinColumn(name = "SemesterID")
-	BHTSemeter semeter;
+	BHTSemester semeter;
 	
 	@OneToOne
 	@JoinColumn(name = "SubjectID")
@@ -133,11 +133,11 @@ public class BHTDocument {
 		this.downloads = downloads;
 	}
 
-	public BHTSemeter getSemeter() {
+	public BHTSemester getSemeter() {
 		return semeter;
 	}
 
-	public void setSemeter(BHTSemeter semeter) {
+	public void setSemeter(BHTSemester semeter) {
 		this.semeter = semeter;
 	}
 
