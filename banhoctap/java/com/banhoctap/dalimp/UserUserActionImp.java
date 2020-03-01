@@ -12,7 +12,7 @@ public interface UserUserActionImp {
 	boolean deleteUserUserAction (BHTUserUserAction userUserAction);
 	
 	//Filter nào không có thì ta truyền null vào. Trong hàm sẽ tự động xem là không dùng filter đó.
-	List<BHTUserUserAction> fetchUserUserActionsWithFilter (int userID, int userActionID, 
-			int affectedUserID, Timestamp userActionDtm, String userActionComment);
+	List<BHTUserUserAction> fetchUserUserActionsWithFilter (Integer userID, Integer userActionID, 
+			Integer affectedUserID, Timestamp userActionDtm, String userActionComment);
 	
 }
