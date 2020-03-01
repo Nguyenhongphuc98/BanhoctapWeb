@@ -17,7 +17,7 @@ public interface CommentReportImp {
 	List<BHTCommentReport> fetchCommentReportsOfReportedUser (int reportedUserID);
 	
 	//Filter nào không có thì ta truyền null vào. Trong hàm sẽ tự động xem là không dùng filter đó.
-	List<BHTCommentReport> fetchCommentReportWithFilter (int commentReportID, int commentID, 
-			int userReportID, int reportedUserID, boolean commentReportSolved);
+	List<BHTCommentReport> fetchCommentReportWithFilter (Integer commentReportID, Integer commentID, 
+			Integer userReportID, Integer reportedUserID, Boolean commentReportSolved);
 	
 }
