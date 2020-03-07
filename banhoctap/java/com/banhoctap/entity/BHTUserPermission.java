@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "Protected_UserPermission")
-public class BHTPermission {
+public class BHTUserPermission {
 
 	@Id
 	@Column(name = "PermissionID")
