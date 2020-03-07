@@ -8,6 +8,7 @@ public class Post implements PostInterface{
 	
 	String contentURL;
 	
+	
 	int tagID;
 	
 	int categoryID;
