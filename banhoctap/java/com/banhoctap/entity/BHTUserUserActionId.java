@@ -16,4 +16,14 @@ public class BHTUserUserActionId implements Serializable{
 	
 	@Column(name = "AffectedUserID")
 	int affectedUserId;
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 }

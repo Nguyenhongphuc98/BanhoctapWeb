@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.banhoctap.controller.model.Post;
 import com.banhoctap.entity.BHTPost;
 import com.banhoctap.service.PostService;
+import com.bht.core.BuilderTemp;
 
 @Controller
 @RequestMapping("/")
@@ -32,7 +33,13 @@ public class HomeController {
 
 	
 	@GetMapping
-	public String WellcomePage() {
+	public String WellcomePage(ModelMap modelMap) {
+		
+		List<BHTPost> posts = BuilderTemp.makePost(3);
+		System.out.println(posts.size());
+		modelMap.addAttribute("highlight", posts.get(0));
+		modelMap.addAttribute("newest", posts);
+		modelMap.addAttribute("activitys", posts);
 
 		//postService.savePost(new Post());
 		return "home";
