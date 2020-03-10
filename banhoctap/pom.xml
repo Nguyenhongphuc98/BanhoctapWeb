@@ -103,5 +103,15 @@
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 	</dependency>
+	
+	<!-- For interacting with Netlify. This is Netlify API Client -->
+	<!-- For this to work, please do a "mvn clean install" to install the library to local repository -->
+	<!-- Else the below code will not compile -->
+	<dependency>
+		<groupId>com.netlify.client</groupId>
+		<artifactId>netlify</artifactId>
+		<version>0.31.1</version>
+	</dependency>
+	
   </dependencies>
 </project>
