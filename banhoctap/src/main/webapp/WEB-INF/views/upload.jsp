@@ -8,9 +8,9 @@
 </head>
 <body>
 	
-	  <form method="post" action="${pageContext.request.contextPath}/documents/upload" enctype="multipart/form-data">
+<%-- 	  <form method="post" action="${pageContext.request.contextPath}/documents/upload" enctype="multipart/form-data">
         
-        Select file to upload
+        Select file to upload --%>
 
  		<input type="text" name="title" />
         <input type="file" name="file" />

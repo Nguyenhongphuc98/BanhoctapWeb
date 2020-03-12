@@ -113,4 +113,9 @@ public class PostDAL implements PostImp{
 		}
 		return null;
 	}
+	
+	public List<BHTPost> fetchPostsByPostCategory(int postCategoryID){
+		return null;
+	}
+	
 }
