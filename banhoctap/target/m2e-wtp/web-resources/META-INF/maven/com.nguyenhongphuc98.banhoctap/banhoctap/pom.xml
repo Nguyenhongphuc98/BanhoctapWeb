@@ -1,4 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+ https://maven.apache.org/xsd/maven.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nguyenhongphuc98.banhoctap</groupId>
   <artifactId>banhoctap</artifactId>
@@ -20,7 +23,7 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
-	    <version>5.2.2.RELEASE</version>
+	    <version>5.2.4.RELEASE</version>
 	</dependency>
 	
 	<!-- code with java language -->
