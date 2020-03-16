@@ -6,9 +6,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.banhoctap.dal.DocumentDAL;
+import com.banhoctap.entity.BHTDocument;
 import com.bht.core.DriverConnector;
 import com.bht.core.Utilities;
 import com.google.api.client.http.FileContent;
@@ -16,6 +20,21 @@ import com.google.api.services.drive.model.File;
 
 @Service
 public class DocumentService {
+	
+	@Autowired
+	DocumentDAL documentDAL;
+	
+	public List<BHTDocument> fetchAllDocuments() {
+		return documentDAL.fetchDocuments();
+	}
+	
+	public List<BHTDocument> fetchDocumentsByTitle(String documentTitle) {
+		return documentDAL.fetchDocumentsByTitle(documentTitle);
+	}
+	
+	public List<BHTDocument> fetchDocumentsTopNDownload(int topN) {
+		return documentDAL.fetchDocumentsTopNDownload(topN);
+	}
 
 	public boolean uploadFile(String savePath,String filename, String contentType, byte[] data) {
 		

@@ -12,7 +12,7 @@ public class BHTSubject {
 	int id;
 	
 	@Column(name = "SubjectName")
-	int name;
+	String name;
 
 	public int getId() {
 		return id;
@@ -22,11 +22,11 @@ public class BHTSubject {
 		this.id = id;
 	}
 
-	public int getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 }

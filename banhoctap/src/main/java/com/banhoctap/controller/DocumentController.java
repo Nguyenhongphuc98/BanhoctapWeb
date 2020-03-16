@@ -16,13 +16,17 @@ import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.banhoctap.entity.BHTDocument;
+import com.banhoctap.entity.BHTPost;
 import com.banhoctap.service.DocumentService;
 import com.bht.core.DriverConnector;
 import com.bht.core.Utilities;
@@ -38,6 +42,27 @@ public class DocumentController {
 	
 	@Autowired
 	DocumentService documentService;
+	
+	@GetMapping
+	public String documentHome(ModelMap modelMap) {
+		List<BHTDocument> docs= documentService.fetchAllDocuments();
+		modelMap.addAttribute("documents", docs);
+		return "documenthome";
+	}
+	
+	@GetMapping(path = "/fetchbytitle/{title}")
+	public String documentHome(@PathVariable("title") String docTitle, ModelMap modelMap) {
+		List<BHTDocument> docs= documentService.fetchDocumentsByTitle(docTitle);
+		modelMap.addAttribute("documents", docs);
+		return "documenthome";
+	}
+	
+	@GetMapping(path = "/topndownload/{topN}")
+	public String documentHome(@PathVariable("topN") int topN, ModelMap modelMap) {
+		List<BHTDocument> docs= documentService.fetchDocumentsTopNDownload(topN);
+		modelMap.addAttribute("documents", docs);
+		return "documenthome";
+	}
 
 	@GetMapping("/upload")
 	public String getUploadPage() {

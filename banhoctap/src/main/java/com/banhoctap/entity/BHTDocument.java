@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity(name = "BHTDocument")
+@Entity(name = "Document")
 public class BHTDocument {
 
 	@Id
@@ -23,6 +23,9 @@ public class BHTDocument {
 	@JoinColumn(name = "DocumentUploaderUserID")
 	BHTUserAccount uploader;
 	
+	@Column(name = "DocumentPublicURL")
+	String publicUrl;
+
 	@Column(name = "DocumentContentURL")
 	String contentUrl;
 	
@@ -85,6 +88,14 @@ public class BHTDocument {
 		this.uploader = uploader;
 	}
 
+	public String getPublicUrl() {
+		return publicUrl;
+	}
+
+	public void setPublicUrl(String publicUrl) {
+		this.publicUrl = publicUrl;
+	}
+	
 	public String getContentUrl() {
 		return contentUrl;
 	}

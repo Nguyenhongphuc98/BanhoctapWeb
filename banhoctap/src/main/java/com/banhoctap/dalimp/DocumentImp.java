@@ -16,6 +16,8 @@ public interface DocumentImp {
 	
 	List<BHTDocument> fetchDocumentsByDescription(String documentDescription);
 	
+	List<BHTDocument> fetchDocumentsTopNDownload(int topN);
+	
 	//Filter nào không có thì ta truyền null vào. Trong hàm sẽ tự động xem là không dùng filter đó.
 	List<BHTDocument> fetchDocumentsByFilter (Integer documentID, String documentTitle, 
 			String documentDescription, Integer documentUploaderUserID, String documentContentURL,

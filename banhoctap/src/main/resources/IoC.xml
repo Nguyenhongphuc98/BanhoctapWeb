@@ -16,9 +16,9 @@
 	
 	<bean id = "dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		 <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	    <property name="url" value="jdbc:mysql://remotemysql.com:3306/0TT5Tj9Idy" />
-	    <property name="username" value="0TT5Tj9Idy" />
-	    <property name="password" value="10afuv1H8A" />
+	    <property name="url" value="jdbc:mysql://db4free.net:3306/bhtcnpmweb" />
+	    <property name="username" value="bhtcnpm_admin" />
+	    <property name="password" value="w.wT2MPZ$Nyc!v@" />
 	</bean>
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
