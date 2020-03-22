@@ -10,6 +10,7 @@ public interface DocumentImp {
 	
 	boolean deleteDocument (BHTDocument document);
 	
+	//fetch doc da duoc phe duyet va khong bi an di
 	List<BHTDocument> fetchDocuments();
 	
 	List<BHTDocument> fetchDocumentsByTitle(String documentTitle);

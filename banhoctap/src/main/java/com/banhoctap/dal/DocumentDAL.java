@@ -16,25 +16,10 @@ import com.banhoctap.entity.BHTDocument;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class DocumentDAL implements DocumentImp {
-
-	@Autowired
-	SessionFactory sessionFactory;
-	
-	private Session getSession() {
-		Session session;
-		try {
-			session = sessionFactory.getCurrentSession();
-			System.out.println("current");
-		} catch (Exception e) {
-			System.out.println("new");
-			session = sessionFactory.openSession();
-		}
-		
-		return session;
-	}
+public class DocumentDAL extends DataAccessLayer implements DocumentImp {
 	
 	@Override
+	@Transactional
 	public boolean saveDocument(BHTDocument document) {
 		
 		int key = (Integer) getSession().save(document);
@@ -45,8 +30,9 @@ public class DocumentDAL implements DocumentImp {
 	}
 
 	@Override
+	@Transactional
 	public boolean deleteDocument(BHTDocument document) {
-		
+		getSession().delete(document);
 		return false;
 	}
 
@@ -69,6 +55,7 @@ public class DocumentDAL implements DocumentImp {
 
 	@Override
 	@Transactional
+	//fetch docs by title and da duoc phe duyet, khong bi an di
 	public List<BHTDocument> fetchDocumentsByTitle(String documentTitle) {
 
 		String query = "from Document where DocumentHidden = 0 and DocumentApproved = 1 and DocumentTitle like '%"+ documentTitle + "%'";
